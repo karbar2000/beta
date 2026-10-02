@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ASGHAR_EBTA</title>
+<style>
+:root{--bg:#0f1420;--cd:#1a2233;--tx:#e8edf7;--mt:#8b97b3;--ac:#f5b942;--gn:#3ddc97;--rd:#ff5d6c;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+body.l{--bg:#f2f4f9;--cd:#fff;--tx:#18202f;--mt:#5d6882}
+*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--tx);font-family:Tahoma,system-ui,sans-serif;max-width:820px;margin:auto}
+header{display:flex;justify-content:space-between;align-items:center;padding:12px 14px;position:sticky;top:env(safe-area-inset-top,0px);background:var(--bg);z-index:5}
+h1{margin:0;font-size:18px;color:var(--ac)}
+nav{display:flex;gap:6px;overflow-x:auto;padding:4px 14px 10px}
+nav button{flex:none}
+button{background:var(--cd);color:var(--tx);border:1px solid #3a4560;border-radius:10px;padding:11px 14px;font:inherit;cursor:pointer;min-height:44px}
+button.on,button.p{background:var(--ac);color:#111;border-color:var(--ac);font-weight:bold}
+button:active{transform:scale(.97)}
+main{padding:0 14px 40px}
+.c{background:var(--cd);border-radius:14px;padding:14px;margin-bottom:12px;animation:f .3s}
+@keyframes f{from{opacity:0;transform:translateY(6px)}}
+.c h3{margin:0 0 8px;font-size:15px}
+.g{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.k{font-size:12px;color:var(--mt)}.v{font-size:19px;font-weight:bold}
+.row{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;padding:6px 0;border-bottom:1px solid #8883}
+.up{color:var(--gn)}.dn{color:var(--rd)}
+.bt{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}
+#t{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:var(--ac);color:#111;padding:10px 16px;border-radius:20px;display:none;z-index:9;max-width:90%}
+svg{width:100%;height:50px}
+</style></head><body>
+<header><h1>🏛 ASGHAR_EBTA</h1><div><button onclick="th()">🌗</button></div></header>
+<nav id="nav"></nav><main id="m"></main><div id="t"></div>
+<script>
+const K='asghar_ebta_v1',f=n=>Math.round(n).toLocaleString('fa-IR'),$=s=>document.querySelector(s);
+const CT=[["🇮🇷 ایران","آسیا",1e6,"ریال",40,15],["🇯🇵 ژاپن","آسیا",1e6,"ین",2,10],["🇸🇦 عربستان","آسیا",1e6,"ریال سعودی",90,5],["🇩🇪 آلمان","اروپا",3e6,"یورو",3,25],["🇳🇴 نروژ","اروپا",3e6,"کرون",30,20],["🇺🇸 آمریکا","آمریکای شمالی",2e6,"دلار",60,18],["🇨🇦 کانادا","آمریکای شمالی",2e6,"دلار کانادا",35,15],["🇧🇷 برزیل","آمریکای جنوبی",2e6,"رئال",25,12],["🇻🇪 ونزوئلا","آمریکای جنوبی",2e6,"بولیوار",45,8]];
+const A=[["usd","💵 دلار",.03],["eur","💶 یورو",.03],["gold","🪙 طلا",.04],["oil","🛢 نفت",.08],["tsla","📈 Tesla",.12],["msft","💻 Microsoft",.1]];
+const JOBS=[["کار فیزیکی",5e4,24,0],["کارگر",9e4,24,2e5],["فروشنده",15e4,12,6e5],["راننده",25e4,12,2e6],["برنامه‌نویس",6e5,12,8e6],["مدیر",15e5,12,3e7]];
+const SEC=["ضعیف","متوسط","قوی","بسیار قوی"],SC=[0,5e4,2e5,1e6],SM=[1,.7,.4,.2];
+const TT=[[0,"کارآفرین"],[1e5,"سرمایه‌گذار"],[1e6,"معامله‌گر"],[5e6,"سرمایه‌دار"],[5e7,"میلیاردر"],[5e8,"امپراتور اقتصادی"]];
+const TABS=["داشبورد","بازار","بانک","کار و ماینر","صندوق و ریسک","کشور","تاریخچه و اخبار","درباره"];
+function def(){let P={usd:100,eur:110,gold:2000,oil:8,tsla:250,msft:400},H={},q={};A.forEach(a=>{H[a[0]]=[P[a[0]]];q[a[0]]=0});return{name:"بازیکن",cash:1e4,bank:0,loan:0,miners:0,c:-1,job:0,jl:0,q,cost:{},xp:0,sec:0,t:Date.now(),P,H,h:[],n:[],w:[],rec:{cash:1e4,profit:0,loss:0,wealth:1e4},dl:"",st:0,dark:1,tab:0,crates:0}}
+let S;try{S=JSON.parse(localStorage.getItem(K))}catch(e){}if(!S)S=def();
+const sv=()=>{try{localStorage.setItem(K,JSON.stringify(S))}catch(e){}};
+const msg=t=>{let e=$('#t');e.textContent=t;e.style.display='block';clearTimeout(msg.i);msg.i=setTimeout(()=>e.style.display='none',2500)};
+const log=(x,a)=>{S.h.unshift([Date.now(),x,a]);S.h.length=Math.min(S.h.length,100)};
+const news=x=>{S.n.unshift(x);S.n.length=Math.min(S.n.length,30)};
+const lv=()=>Math.floor(Math.sqrt(S.xp/40))+1;
+const xp=n=>{let a=lv();S.xp+=n;if(lv()>a)msg('🎉 Level '+lv())};
+const inc=()=>S.miners*50;
+const oilRate=()=>S.c<0?0:CT[S.c][4]*(1-CT[S.c][5]/100)*.5;
+function wealth(){let w=S.cash+S.bank-S.loan+S.miners*5e3+(S.c>=0?CT[S.c][2]:0);A.forEach(a=>w+=S.q[a[0]]*S.P[a[0]]);return w}
+const title=()=>{let w=wealth(),t=TT[0][1];TT.forEach(x=>{if(w>=x[0])t=x[1]});return t};
+const EV=[["🛢 بحران نفت: قیمت نفت جهش کرد",p=>p.oil*=1.35],["📉 رکود اقتصادی: سقوط بازار سهام",p=>{p.tsla*=.8;p.msft*=.8}],["🚀 رونق اقتصادی: بازار سهام صعودی شد",p=>{p.tsla*=1.2;p.msft*=1.2}],["💵 ارزش دلار ناگهان افزایش یافت",p=>p.usd*=1.12],["🪙 طلا به‌دلیل نگرانی‌ها گران شد",p=>p.gold*=1.15],["🛢 تولید نفت جهانی بالا رفت، نفت ارزان شد",p=>p.oil*=.75],["💶 یورو تضعیف شد",p=>p.eur*=.9]];
+function ptick(){A.forEach(a=>{let k=a[0],p=S.P[k]*(1+(Math.random()-.5)*a[2]);p=Math.max(p,k=='oil'?1:5);S.P[k]=p;S.H[k].push(p);if(S.H[k].length>40)S.H[k].shift()});
+if(Math.random()<.04){let e=EV[Math.random()*EV.length|0];e[1](S.P);news(e[0])}}
+function step(sec){let m=sec/60;S.cash+=inc()*m;S.bank*=Math.pow(1.001,m);if(S.loan)S.loan*=Math.pow(1.0005,m);S.q.oil+=oilRate()*m;
+let d=sec/86400,pr=.03*SM[S.sec];for(let i=0;i<Math.floor(d);i++)hack(pr);if(Math.random()<pr*(d%1))hack(1)}
+function hack(p){if(S.bank>1&&Math.random()<p){let l=S.bank*.1;S.bank-=l;log('🏦 هک بانک',-l);news('🏦 بانک شما مورد حمله سایبری قرار گرفت! '+f(l)+' از دست رفت');msg('🏦 بانک هک شد!')}}
+function boot(){let now=Date.now(),el=Math.min((now-S.t)/1000,864000);if(el>5){let inc0=inc()*el/60;if(inc0>0)log('درآمد آفلاین Miner',inc0);for(let i=0;i<Math.min(el/5,200);i++)ptick();step(el)}S.t=now;
+let day=new Date().toDateString();if(S.dl!=day){let y=new Date(Date.now()-864e5).toDateString();S.st=S.dl==y?S.st+1:1;S.dl=day;let b=1000*Math.min(S.st,7);S.cash+=b;log('پاداش ورود روزانه (روز '+S.st+')',b);msg('🎁 پاداش روزانه '+f(b))}}
+boot();
+setInterval(()=>{step(1);S.t=Date.now();S.rec.cash=Math.max(S.rec.cash,S.cash);S.rec.wealth=Math.max(S.rec.wealth,wealth());sv();upd()},1000);
+setInterval(()=>{ptick();R()},5000);
+setInterval(()=>{S.w.push(wealth());if(S.w.length>60)S.w.shift()},20000);S.w.push(wealth());
+function th(){S.dark=!S.dark;R()}
+function sp(a,c){if(a.length<2)return'';let mn=Math.min(...a),mx=Math.max(...a),r=mx-mn||1;return`<svg viewBox="0 0 300 50" preserveAspectRatio="none"><polyline fill="none" stroke="${c||'#f5b942'}" stroke-width="2" points="${a.map((v,i)=>(i*300/(a.length-1)).toFixed(1)+','+(48-(v-mn)/r*46).toFixed(1)).join(' ')}"/></svg>`}
+const ch=k=>{let h=S.H[k];return h.length<2?0:(h[h.length-1]/h[h.length-2]-1)*100};
+const pc=k=>{let c=ch(k);return`<span class="${c>=0?'up':'dn'}">${c>=0?'+':''}${c.toFixed(1)}%</span>`};
+function go(fn){fn();sv();R()}
+function qty(t){let q=parseFloat(prompt(t));return q>0?q:0}
+function buy(k){let q=qty('تعداد/مقدار خرید؟');if(!q)return;let c=q*S.P[k];if(c>S.cash)return msg('موجودی کافی نیست');go(()=>{let o=S.q[k]*(S.cost[k]||0);S.q[k]+=q;S.cost[k]=(o+c)/S.q[k];S.cash-=c;log('خرید '+k+' ×'+q,-c);xp(k=='tsla'||k=='msft'?15:10);S.rec.inv=Math.max(S.rec.inv||0,c)})}
+function sell(k){let q=qty('تعداد/مقدار فروش؟ (حداکثر '+S.q[k].toFixed(2)+')');if(!q)return;if(q>S.q[k]+1e-9)return msg('مقدار کافی ندارید');go(()=>{let g=q*S.P[k],pf=k=='oil'?g:g-q*(S.cost[k]||0);S.q[k]-=q;S.cash+=g;log('فروش '+k+' ×'+q+(k=='oil'?' (درآمد نفت)':''),pf);S.rec.profit=Math.max(S.rec.profit,pf);S.rec.loss=Math.min(S.rec.loss,pf);xp(10)})}
+function dep(){let q=qty('مبلغ سپرده؟');if(!q||q>S.cash)return msg('نامعتبر');go(()=>{S.cash-=q;S.bank+=q;log('سپرده بانک',-q);xp(5)})}
+function wd(){let q=qty('مبلغ برداشت؟');if(!q||q>S.bank)return msg('نامعتبر');go(()=>{S.bank-=q;S.cash+=q;log('برداشت بانک',q)})}
+function loan(){let q=qty('مبلغ وام؟ (سقف 1,000,000 بدهی)');if(!q||S.loan+q>1e6)return msg('بیش از سقف');go(()=>{S.loan+=q;S.cash+=q;log('دریافت وام',q)})}
+function repay(){let q=qty('مبلغ بازپرداخت؟');if(!q)return;q=Math.min(q,S.loan);if(q>S.cash)return msg('موجودی کافی نیست');go(()=>{S.loan-=q;S.cash-=q;log('بازپرداخت وام',-q)})}
+function upSec(){let n=S.sec+1;if(n>3||S.cash<SC[n])return msg('امکان‌پذیر نیست');go(()=>{S.cash-=SC[n];S.sec=n;log('ارتقای امنیت بانک',-SC[n])})}
+function mine(){let q=Math.floor(qty('چند Miner؟'));if(!q||q*5e3>S.cash)return msg('نامعتبر');go(()=>{S.cash-=q*5e3;S.miners+=q;log('خرید Miner ×'+q,-q*5e3);xp(20*q)})}
+function work(){let j=JOBS[S.job],r=j[2]*36e5-(Date.now()-S.jl);if(r>0)return msg('هنوز زمان دریافت نرسیده');go(()=>{S.jl=Date.now();S.cash+=j[1];log('حقوق '+j[0],j[1]);xp(25)})}
+function upJob(){let j=JOBS[S.job+1];if(!j||S.cash<j[3])return msg('امکان‌پذیر نیست');go(()=>{S.cash-=j[3];S.job++;S.jl=0;log('ارتقا به '+j[0],-j[3]);xp(50)})}
+function crate(t){let p=t?5e4:5e3;if(S.cash<p)return msg('موجودی کافی نیست');let r=Math.random()*100,o;S.cash-=p;S.crates++;
+if(!t){if(r<60){S.cash+=700;o=[700,'💰 ۷۰۰ پول']}else if(r<65){let j=JOBS[S.job][1];S.cash+=j;o=[j,'🎁 جایزه شغلی '+f(j)]}else if(r<85){S.cash+=3e3;o=[3e3,'💰 ۳٬۰۰۰ پول']}else{xp(60);o=[0,'⭐ ۶۰ XP']}}
+else{if(r<30){S.cash+=1e5;o=[1e5,'🎉 ۱۰۰٬۰۰۰ پول']}else if(r<80)o=[0,'💥 باخت'];else{let s=Math.random();if(s<.4){S.cash+=3e5;o=[3e5,'💎 ۳۰۰٬۰۰۰ پول']}else if(s<.7){xp(500);o=[0,'💎 ۵۰۰ XP']}else{S.miners++;o=[5e3,'💎 یک Miner رایگان']}}}
+log((t?'صندوق سلطنتی: ':'صندوق چوبی: ')+o[1],o[0]-p);msg(o[1]);xp(10);sv();R()}
+function risk(){let q=qty('مبلغ ریسک؟');if(!q)return;if(q>S.cash)return msg('بیشتر از موجودی');if(!confirm('اگر ببری +'+f(q)+' (۲×) ، اگر ببازی -'+f(q)+'. تأیید؟'))return;go(()=>{if(Math.random()<.5){S.cash+=q;log('Risk برد',q);msg('✅ بردی');S.rec.profit=Math.max(S.rec.profit,q)}else{S.cash-=q;log('Risk باخت',-q);msg('❌ باختی');S.rec.loss=Math.min(S.rec.loss,-q)}xp(15)})}
+function pick(i){let c=CT[i];if(S.c>=0||S.cash<c[2])return msg('امکان‌پذیر نیست');if(!confirm('خرید '+c[0]+' قطعی است و قابل تغییر نیست. تأیید؟'))return;go(()=>{S.cash-=c[2];S.c=i;log('خرید کشور '+c[0],-c[2]);news('🌍 شما '+c[0]+' را خریدید');xp(100)})}
+function name(){let n=prompt('نام بازیکن؟',S.name);if(n)go(()=>S.name=n.slice(0,20))}
+function reset(){if(confirm('همه اطلاعات پاک می‌شود. مطمئنی؟')&&confirm('آخرین تأیید: بازی از صفر شروع شود؟')){S=def();sv();R()}}
+const card=(t,b)=>`<div class="c"><h3>${t}</h3>${b}</div>`,kv=(k,v)=>`<div><div class="k">${k}</div><div class="v">${v}</div></div>`,B=(l,fn,p)=>`<button class="${p?'p':''}" onclick="${fn}">${l}</button>`;
+function upd(){let e=$('#hd');if(e)e.innerHTML=hd()}
+const hd=()=>`<div class="g">${kv('💰 پول نقد',f(S.cash))}${kv('🏦 بانک',f(S.bank))}${kv('💎 کل ثروت',f(wealth()))}${kv('⏱ درآمد Miner/دقیقه',f(inc()))}</div>`;
+function R(){document.body.className=S.dark?'':'l';$('#nav').innerHTML=TABS.map((t,i)=>`<button class="${S.tab==i?'on':''}" onclick="S.tab=${i};R()">${t}</button>`).join('');let h='';
+const T=S.tab;
+if(T==0)h=card(`${S.name} — Level ${lv()} · ${title()}`,`<div id="hd">${hd()}</div><div class="k" style="margin-top:8px">XP: ${f(S.xp)} · کشور: ${S.c<0?'انتخاب نشده':CT[S.c][0]} · Streak ورود: ${S.st} روز · بدهی: ${f(S.loan)}</div>${B('✏️ تغییر نام','name()')}`)+card('نمودار ثروت',sp(S.w))+card('آخرین اخبار EBTA',S.n.slice(0,4).map(x=>`<div class="row">${x}</div>`).join('')||'<div class="k">هنوز خبری نیست</div>')+card('رکوردها',`<div class="g">${kv('بیشترین موجودی',f(S.rec.cash))}${kv('بیشترین ثروت',f(S.rec.wealth))}${kv('بیشترین سود',f(S.rec.profit))}${kv('بزرگ‌ترین ضرر',f(S.rec.loss))}${kv('صندوق‌ها',S.crates)}</div>`);
+if(T==1)h=A.map(a=>{let k=a[0];return card(`${a[1]} <span style="float:left">${pc(k)}</span>`,`<div class="row"><span>قیمت: <b>${f(S.P[k])}</b></span><span>دارایی: ${S.q[k].toFixed(2)}</span></div>${sp(S.H[k],ch(k)>=0?'#3ddc97':'#ff5d6c')}<div class="bt">${k=='oil'?'':B('خرید',`buy('${k}')`,1)}${B('فروش',`sell('${k}')`)}</div>`+(k=='oil'?`<div class="k">تولید: ${oilRate().toFixed(1)} بشکه/دقیقه${S.c<0?' (کشور بخرید)':''}</div>`:''))}).join('');
+if(T==2)h=card('بانک',`<div class="g">${kv('موجودی',f(S.bank))}${kv('سود',' ۰٫۱٪ در دقیقه (مرکب)')}${kv('امنیت',SEC[S.sec])}</div><div class="bt">${B('Deposit','dep()',1)}${B('Withdraw','wd()')}${S.sec<3?B('ارتقای امنیت ('+f(SC[S.sec+1])+')','upSec()'):''}</div><div class="k">هک: ۳٪ احتمال در روز × ضریب امنیت؛ ۱۰٪ موجودی بانک از بین می‌رود.</div>`)+card('وام',`<div class="g">${kv('بدهی',f(S.loan))}${kv('وضعیت',S.loan?'فعال — ۰٫۰۵٪/دقیقه':'بدون وام')}</div><div class="bt">${B('دریافت وام','loan()',1)}${B('بازپرداخت','repay()')}</div>`);
+if(T==3){let j=JOBS[S.job],r=j[2]*36e5-(Date.now()-S.jl),nj=JOBS[S.job+1];h=card('شغل: '+j[0],`<div class="row"><span>حقوق: ${f(j[1])}</span><span>هر ${j[2]} ساعت</span></div><div class="bt">${B(r>0?'⏳ '+Math.ceil(r/36e5)+' ساعت دیگر':'دریافت حقوق','work()',r<=0)}${nj?B('ارتقا به '+nj[0]+' ('+f(nj[3])+')','upJob()'):''}</div>`)+card('⛏ Miner',`<div class="g">${kv('تعداد',S.miners)}${kv('درآمد/دقیقه',f(inc()))}</div><div class="k">قیمت هر Miner ۵٬۰۰۰ — ۵۰ در دقیقه؛ آفلاین هم محاسبه می‌شود.</div><div class="bt">${B('خرید Miner','mine()',1)}</div>`)}
+if(T==4)h=card('📦 صندوق چوبی — ۵٬۰۰۰',`<div class="k">۶۰٪ ۷۰۰ پول · ۵٪ جایزه شغلی · ۲۰٪ ۳٬۰۰۰ پول · ۱۵٪ ۶۰ XP</div><div class="bt">${B('باز کردن','crate(0)',1)}</div>`)+card('👑 صندوق سلطنتی — ۵۰٬۰۰۰',`<div class="k">۳۰٪ ۱۰۰٬۰۰۰ پول · ۵۰٪ باخت کامل · ۲۰٪ جایزه ویژه (پول/XP/Miner)</div><div class="bt">${B('باز کردن','crate(1)',1)}</div>`)+card('🎲 Risk',`<div class="k">۵۰٪ شانس: برد = ۲× مبلغ، باخت = از دست رفتن کل مبلغ</div><div class="bt">${B('شروع','risk()',1)}</div>`);
+if(T==5)h=card('انتخاب کشور (فقط یک‌بار)',CT.map((c,i)=>`<div class="row"><span>${c[0]} · ${c[1]}<br><span class="k">ارز: ${c[3]} · نفت: ${c[4]} · مالیات: ${c[5]}٪${c[4]>=60?' · 🛢 نفت‌خیز':''}</span></span>${S.c==i?'<b class="up">✔ کشور شما</b>':S.c>=0?'':B(f(c[2]),`pick(${i})`,1)}</div>`).join(''));
+if(T==6)h=card('اخبار EBTA',S.n.map(x=>`<div class="row">${x}</div>`).join('')||'<div class="k">—</div>')+card('تاریخچه تراکنش‌ها',S.h.map(x=>`<div class="row"><span>${x[1]}<br><span class="k">${new Date(x[0]).toLocaleString('fa-IR')}</span></span><b class="${x[2]>=0?'up':'dn'}">${x[2]?f(x[2]):''}</b></div>`).join('')||'<div class="k">—</div>');
+if(T==7)h=card('درباره سازندگان',`<div class="row"><span>نام بازی</span><b>ASGHAR_EBTA</b></div><div class="row"><span>سازندگان</span><b>TAHA و MOHAMMAD HOSSEIN</b></div><div class="row"><span>برند</span><b>EBTA / ابتا</b></div><div class="bt">${B('🗑 Reset Game','reset()')}</div>`);
+$('#m').innerHTML=h}
+R();
+</script></body></html>
